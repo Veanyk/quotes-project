@@ -41,10 +41,6 @@ https://quotes-project.chickenkiller.com
 
 ## Project Structure
 
-```markdown
-<details>
-  <summary><b>Project Structure</b></summary>
-
 ```text
 quotes-project/
 ├── project/
@@ -65,7 +61,6 @@ quotes-project/
 ├── manage.py
 ├── README.md
 └── requirements.txt
-</details>
 ```
 ## Local Development Setup
 
