@@ -40,38 +40,33 @@ https://quotes-project.chickenkiller.com
     - **SSL/TLS**: Let's Encrypt with Certbot for HTTPS.
 
 ## Project Structure
-quotes-project/
-├── .gitignore # Specifies files to be ignored by Git
-├── README.md # This file
-├── manage.py # Django's command-line utility
-├── requirements.txt # Python dependencies
-├── project/ # Django project settings (settings.py, urls.py, wsgi.py)
-│ ├── init.py
-│ ├── asgi.py
-│ ├── settings.py
-│ ├── urls.py 
-│ └── wsgi.py
-├── quotes/ # The main Django app
-│ ├── init.py
-│ ├── admin.py # Admin panel configuration
-│ ├── apps.py
-│ ├── forms.py # Quote submission form with custom validation
-│ ├── migrations/ # Database migrations
-│ ├── models.py # Database models (Quote, Source, Vote)
-│ ├── templates/
-│ │ └── quotes/
-│ │ ├── add_quote.html
-│ │ ├── base.html
-│ │ ├── quote_list.html
-│ │ ├── random_quote.html
-│ │ └── top.html
-│ ├── urls.py # App-specific URL patterns
-│ ├── utils.py # Helper functions (e.g., normalize_text)
-│ └── views.py # View logic
-└── static/ # Static files (CSS)
-└── css/
-└── base.css
 
+```markdown
+<details>
+  <summary><b>Project Structure</b></summary>
+
+```text
+quotes-project/
+├── project/
+├── quotes/
+│   ├── migrations/
+│   ├── templates/
+│   │   └── quotes/
+│   ├── admin.py
+│   ├── forms.py
+│   ├── models.py
+│   ├── urls.py
+│   ├── utils.py
+│   └── views.py
+├── static/
+│   └── css/
+│       └── base.css
+├── .gitignore
+├── manage.py
+├── README.md
+└── requirements.txt
+</details>
+```
 ## Local Development Setup
 
 To run this project on your local machine, follow these steps:
