@@ -1,0 +1,59 @@
+{% extends "quotes/base.html" %}
+{% block title %}Случайная цитата{% endblock %}
+
+{% block content %}
+  <div class="quote-page-wrapper">
+    {% if quote %}
+      <div class="card main-quote-card">
+        <div class="quote-frame">
+          <p class="quote-text">“{{ quote.text }}”</p>
+          <p class="quote-source">- {{ quote.source.name }}</p>
+          <div class="stats-bar">
+            <span class="stat-item" title="Просмотры">👁️ {{ quote.views }}</span>
+            <span class="stat-item" title="Нравится">👍 {{ quote.likes }}</span>
+            <span class="stat-item" title="Не нравится">👎 {{ quote.dislikes }}</span>
+          </div>
+        </div>
+
+        <div class="action-row">
+
+          <form action="{% url 'quotes:vote' quote.pk %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="like" />
+            <button type="submit" class="like-btn" title="Нравится">👍</button>
+          </form>
+
+          <form action="{% url 'quotes:vote' quote.pk %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="dislike" />
+            <button type="submit" class="dislike-btn" title="Не нравится">👎</button>
+          </form>
+
+          <a href="{% url 'quotes:random' %}" class="button-link">
+            <button type="button" class="new-quote-btn" title="Следующая цитата">🔄 Ещё цитату</button>
+          </a>
+        </div>
+      </div>
+    {% else %}
+      <div class="card">
+        <p>Нет активных цитат. <a href="{% url 'quotes:add' %}">Добавьте первую</a>.</p>
+      </div>
+    {% endif %}
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      {% if quote %}
+        const quoteKind = '{{ quote.source.kind }}';
+        let imageUrl = 'https://source.unsplash.com/1600x900/?reading';
+
+        if (quoteKind === 'movie') {
+          imageUrl = 'https://source.unsplash.com/1600x900/?movie,cinema';
+        } else if (quoteKind === 'book') {
+          imageUrl = 'https://source.unsplash.com/1600x900/?book,library';
+        }
+        document.body.style.setProperty('--bg-image', `url(${imageUrl})`);
+      {% endif %}
+    });
+  </script>
+{% endblock %}

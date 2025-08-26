@@ -1,0 +1,35 @@
+{% extends "quotes/base.html" %}
+{% block title %}ТОП-10 цитат по лайкам{% endblock %}
+
+{% block content %}
+  <div class="card filter-card" style="margin-bottom:16px;">
+    <form method="get" class="filter-form">
+      <label>
+        Тип источника:
+        <select name="kind">
+          <option value="">Все</option>
+          <option value="movie" {% if selected_kind == "movie" %}selected{% endif %}>Фильмы</option>
+          <option value="book" {% if selected_kind == "book" %}selected{% endif %}>Книги</option>
+        </select>
+      </label>
+      <button type="submit">Применить</button>
+    </form>
+  </div>
+
+  <div class="card">
+    <h3>ТОП-10 по лайкам</h3>
+    <ol class="top-list">
+      {% for q in top_by_likes %}
+        <li class="top-list-item">
+          <div class="top-list-content">
+            <p>“{{ q.text }}” — <span class="muted">{{ q.source.name }}</span></p>
+            <small class="muted">👍 {{ q.likes }} | 👎 {{ q.dislikes }} • 👁️ {{ q.views }}</small>
+          </div>
+        </li>
+      {% empty %}
+        <li>Нет данных для отображения.</li>
+      {% endfor %}
+    </ol>
+  </div>
+
+{% endblock %}

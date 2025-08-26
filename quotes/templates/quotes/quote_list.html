@@ -1,0 +1,38 @@
+{% extends "quotes/base.html" %}
+
+{% block title %}
+  {% if query %}
+    Результаты поиска
+  {% else %}
+    Все цитаты
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <div class="card">
+    <h3 style="margin-top:0;">
+      {% if query %}
+        Результаты поиска по запросу: «{{ query }}»
+      {% else %}
+        Список всех цитат
+      {% endif %}
+    </h3>
+
+    {% if quotes %}
+      <p class="muted">Найдено: {{ quotes.count }}</p>
+      <ul style="list-style: none; padding: 0;">
+        {% for q in quotes %}
+          <li style="border-bottom: 1px solid #333; padding: 16px 0;">
+            <p style="font-size: 1.2em; margin: 0;">“{{ q.text }}”</p>
+            <span class="muted">— {{ q.source.name }}</span>
+            <div class="muted" style="margin-top: 8px;">
+              👍 {{ q.likes }} | 👎 {{ q.dislikes }} | 👁️ {{ q.views }}
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>Ничего не найдено. Попробуйте другой запрос или <a href="{% url 'quotes:add' %}">добавьте новую цитату</a>.</p>
+    {% endif %}
+  </div>
+{% endblock %}

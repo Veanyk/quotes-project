@@ -1,0 +1,41 @@
+{% extends "quotes/base.html" %}
+{% block title %}Добавить цитату{% endblock %}
+{% block content %}
+  <div class="card">
+    <h3 style="margin-top:0;">Добавить цитату</h3>
+
+    <form method="post" class="styled-form">
+      {% csrf_token %}
+
+      {% if form.non_field_errors %}
+        <div class="form-errors">
+          {% for error in form.non_field_errors %}
+            <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <div class="form-field">
+        <label for="{{ form.text.id_for_label }}">{{ form.text.label }}</label>
+        {{ form.text }}
+      </div>
+
+      <div class="form-field">
+        <label for="{{ form.source_name.id_for_label }}">{{ form.source_name.label }}</label>
+        {{ form.source_name }}
+      </div>
+
+      <div class="form-field">
+        <label for="{{ form.source_kind.id_for_label }}">{{ form.source_kind.label }}</label>
+        {{ form.source_kind }}
+      </div>
+
+      <div class="form-field">
+        <label for="{{ form.weight.id_for_label }}">{{ form.weight.label }}</label>
+        {{ form.weight }}
+      </div>
+
+      <button type="submit">Сохранить</button>
+    </form>
+  </div>
+{% endblock %}

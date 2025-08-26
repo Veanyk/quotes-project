@@ -1,0 +1,27 @@
+{% load static %}
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>{% block title %}Цитаты{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+  {% csrf_token %}
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="{% url 'quotes:random' %}" class="{% if request.resolver_match.url_name == 'random' %}active{% endif %}">Случайная</a>
+      <a href="{% url 'quotes:add' %}" class="{% if request.resolver_match.url_name == 'add' %}active{% endif %}">Добавить</a>
+      <a href="{% url 'quotes:top' %}" class="{% if request.resolver_match.url_name == 'top' %}active{% endif %}">ТОП</a>
+      <form class="search-form" action="{% url 'quotes:search' %}" method="get">
+        <input type="search" name="q" placeholder="Найти цитату..." value="{{ request.GET.q }}">
+        <button type="submit">Поиск</button>
+      </form>
+    </nav>
+  </header>
+  <div class="container">
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>
