@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Quote, Source, Vote
-
+from django.db import models
+from django.forms import NumberInput
 
 @admin.register(Quote)
 class QuoteAdmin(admin.ModelAdmin):
@@ -20,11 +21,14 @@ class QuoteAdmin(admin.ModelAdmin):
     ordering = ('-created_at',)
     actions = ['approve_quotes']
 
+    formfield_overrides = {
+        models.PositiveIntegerField: {
+            "widget": NumberInput(attrs={"min": 1, "max": 10}),
+        },
+    }
+
     @admin.action(description='Одобрить выбранные цитаты')
     def approve_quotes(self, request, queryset):
-        """
-        Массовое действие для одобрения цитат.
-        """
         queryset.update(is_active=True)
 
 @admin.register(Source)
