@@ -6,6 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="70d01f4b-4186-4fb1-b4ed-7c1f21f52628" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quotes/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/quotes/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quotes/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/quotes/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quotes/templates/quotes/add_quote.html" beforeDir="false" afterPath="$PROJECT_DIR$/quotes/templates/quotes/add_quote.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quotes/templates/quotes/quote_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/quotes/templates/quotes/quote_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quotes/templates/quotes/random_quote.html" beforeDir="false" afterPath="$PROJECT_DIR$/quotes/templates/quotes/random_quote.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quotes/templates/quotes/top.html" beforeDir="false" afterPath="$PROJECT_DIR$/quotes/templates/quotes/top.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quotes/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/quotes/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quotes/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/quotes/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/base.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,13 +44,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "E:/PycharmProjects/telegram_bot"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/PycharmProjects/telegram_bot&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\PycharmProjects\task_24.08.25" />

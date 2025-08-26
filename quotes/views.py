@@ -6,7 +6,6 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 from .models import Quote, Vote, Source
 from .forms import QuoteForm
-from django.core.exceptions import ValidationError
 
 @require_http_methods(["GET", "POST"])
 @csrf_protect
@@ -14,15 +13,13 @@ def add_quote_view(request):
     if request.method == "POST":
         form = QuoteForm(request.POST)
         if form.is_valid():
-            quote = form.save(commit=False)
-            quote.is_active = True
-            quote.save()
-
+            form.save()
             messages.success(request, "Цитата успешно добавлена!")
             return redirect("quotes:random")
     else:
         form = QuoteForm()
-    return render(request, "quotes/add_quote.html", {"form": form})
+
+    return render(request, "quotes/add_quote_html", {"form": form})
 
 
 def search_view(request):
@@ -46,19 +43,16 @@ def ensure_session(request):
         request.session.create()
     return request.session.session_key
 
+
 @require_http_methods(["GET", "POST"])
 @csrf_protect
 def add_quote_view(request):
     if request.method == "POST":
         form = QuoteForm(request.POST)
         if form.is_valid():
-            try:
-                form.save()
-                messages.success(request, "Цитата успешно добавлена!")
-                return redirect("quotes:random")
-
-            except ValidationError as e:
-                form.add_error(None, e)
+            form.save()
+            messages.success(request, "Цитата успешно добавлена!")
+            return redirect("quotes:random")
     else:
         form = QuoteForm()
 

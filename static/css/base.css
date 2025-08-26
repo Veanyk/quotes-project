@@ -97,7 +97,7 @@ button {
 .styled-form input::placeholder, .styled-form textarea::placeholder { color: #6b7280; }
 
 .form-errors {
-  background-color: rgba(248, 113, 113, 0.1); /* Светло-красный фон */
+  background-color: rgba(248, 113, 113, 0.1);
   border: 1px solid var(--neon-red);
   border-radius: 8px;
   padding: 12px 16px;
@@ -107,6 +107,17 @@ button {
   margin: 0;
   color: var(--neon-red);
   font-weight: 500;
+}
+.form-warning {
+  background-color: rgba(251, 191, 36, 0.1);
+  border: 1px solid #fbbf24;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+}
+.form-warning p {
+  margin: 0 0 12px 0;
+  color: #fbbf24;
 }
 
 /* Стили для основной страницы */

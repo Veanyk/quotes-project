@@ -24,7 +24,7 @@
         {% for q in quotes %}
           <li style="border-bottom: 1px solid #333; padding: 16px 0;">
             <p style="font-size: 1.2em; margin: 0;">“{{ q.text }}”</p>
-            <span class="muted">— {{ q.source.name }}</span>
+            <span class="muted">— {{ q.source.get_full_name }}</span>
             <div class="muted" style="margin-top: 8px;">
               👍 {{ q.likes }} | 👎 {{ q.dislikes }} | 👁️ {{ q.views }}
             </div>

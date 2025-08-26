@@ -1,11 +1,19 @@
 import re
+import string
 
-_space_re = re.compile(r"\s+", re.UNICODE)
-
-def normalize_text(s: str) -> str:
-    if not s:
+def normalize_text(text: str) -> str:
+    if not text:
         return ""
-    s = s.strip().lower()
-    s = _space_re.sub(" ", s)
-    s = s.replace("«", "").replace("»", "").replace('"', "").replace("'", "")
-    return s
+
+    text = text.lower()
+
+    punctuation_to_remove = string.punctuation + '«»“”‘’—…'
+
+    translator = str.maketrans('', '', punctuation_to_remove)
+    text = text.translate(translator)
+
+    text = re.sub(r'\s+', ' ', text)
+
+    text = text.strip()
+
+    return text

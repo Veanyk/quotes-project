@@ -7,7 +7,7 @@
       <div class="card main-quote-card">
         <div class="quote-frame">
           <p class="quote-text">“{{ quote.text }}”</p>
-          <p class="quote-source">- {{ quote.source.name }}</p>
+          <p class="quote-source">- {{ quote.source.get_full_name }}</p>
           <div class="stats-bar">
             <span class="stat-item" title="Просмотры">👁️ {{ quote.views }}</span>
             <span class="stat-item" title="Нравится">👍 {{ quote.likes }}</span>

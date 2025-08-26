@@ -22,7 +22,7 @@
       {% for q in top_by_likes %}
         <li class="top-list-item">
           <div class="top-list-content">
-            <p>“{{ q.text }}” — <span class="muted">{{ q.source.name }}</span></p>
+            <p>“{{ q.text }}” — <span class="muted">{{ q.source.get_full_name }}</span></p>
             <small class="muted">👍 {{ q.likes }} | 👎 {{ q.dislikes }} • 👁️ {{ q.views }}</small>
           </div>
         </li>

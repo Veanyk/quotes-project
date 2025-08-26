@@ -20,6 +20,9 @@ class Source(models.Model):
     def __str__(self):
         return self.name
 
+    def get_full_name(self):
+        return f"{self.name} ({self.get_kind_display()})"
+
 class QuoteQuerySet(models.QuerySet):
     def active(self):
         return self.filter(is_active=True, weight__gt=0)
@@ -67,9 +70,10 @@ class Quote(models.Model):
             models.Index(fields=["source", "is_active"]),
             models.Index(fields=["-likes", "-views"]),
         ]
-        constraints = [
-            UniqueConstraint(fields=["normalized_text"], name="uq_quote_normalized_text"),
-        ]
+        UniqueConstraint(
+            fields=["source", "normalized_text"],
+            name="uq_quote_source_normalized_text"
+        ),
 
     def clean(self):
         if self.source_id:
