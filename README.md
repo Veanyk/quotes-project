@@ -5,7 +5,7 @@ A dynamic and feature-rich web application for collecting, sharing, and rating q
 ## Live Demo
 
 You can view the live version of this project here:
-https://quotes-project.chickenkiller.com
+https://quotes-project.duckdns.org
 
 *(Note: If the server is offline for maintenance, please check back later.)*
 
