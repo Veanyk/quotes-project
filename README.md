@@ -41,24 +41,36 @@ https://quotes-project.chickenkiller.com
 
 ## Project Structure
 quotes-project/
+├── .gitignore # Specifies files to be ignored by Git
+├── README.md # This file
+├── manage.py # Django's command-line utility
+├── requirements.txt # Python dependencies
 ├── project/ # Django project settings (settings.py, urls.py, wsgi.py)
+│ ├── init.py
+│ ├── asgi.py
+│ ├── settings.py
+│ ├── urls.py 
+│ └── wsgi.py
 ├── quotes/ # The main Django app
-│ ├── migrations/ # Database migrations
-│ ├── templates/ # HTML templates
-│ │ └── quotes/
+│ ├── init.py
 │ ├── admin.py # Admin panel configuration
+│ ├── apps.py
 │ ├── forms.py # Quote submission form with custom validation
+│ ├── migrations/ # Database migrations
 │ ├── models.py # Database models (Quote, Source, Vote)
+│ ├── templates/
+│ │ └── quotes/
+│ │ ├── add_quote.html
+│ │ ├── base.html
+│ │ ├── quote_list.html
+│ │ ├── random_quote.html
+│ │ └── top.html
 │ ├── urls.py # App-specific URL patterns
 │ ├── utils.py # Helper functions (e.g., normalize_text)
 │ └── views.py # View logic
-├── static/ # Static files (CSS)
-│ └── css/
-│ └── base.css
-├── .gitignore # Specifies files to be ignored by Git
-├── manage.py # Django's command-line utility
-├── README.md # This file
-└── requirements.txt # Python dependencies
+└── static/ # Static files (CSS)
+└── css/
+└── base.css
 
 ## Local Development Setup
 
@@ -130,7 +142,7 @@ class QuoteForm(forms.ModelForm):
         # ...
 ```
 
-Weighted Random Quote in models.py
+### Weighted Random Quote in models.py
 The QuoteQuerySet includes a custom method weighted_random() that selects a quote based on its weight field, ensuring that more important quotes appear more frequently. It also excludes the last seen quote (stored in the session) to avoid immediate repetition.
 
 ```bash
